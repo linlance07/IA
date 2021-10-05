@@ -1,0 +1,258 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<link rel="icon" sizes="192x192" href="https://firebasestorage.googleapis.com/v0/b/department-general.appspot.com/o/iTech%20academia.png?alt=media&token=37847fbc-75df-4143-a355-d713c5fd4335">
+<title>iTech Academia</title>
+<!-- CSS Files-->
+<link rel="stylesheet" href="{% static 'stylesheets/style.css' %}">
+
+<link rel="stylesheet" href="{% static 'stylesheets/skins/blue.css' %}">
+<!-- skin color -->
+<link rel="stylesheet" href="{% static 'stylesheets/responsive.css' %}">
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <!-- HIDDEN PANEL 
+================================================== -->
+<div id="panel">
+	<div class="row">
+		<div class="eight columns">
+
+			<p style="font-size: 17px;">Fun Fact: This website in other languages is fun to access, Do you want to try?</p>
+			
+		</div>
+		<div class="four columns">
+			<div id="google_translate_element"></div>
+		
+			
+		</div>
+	</div>
+</div>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			
+			<a href="index">
+				<h4><img src="https://firebasestorage.googleapis.com/v0/b/department-general.appspot.com/o/iTech%20academia.png?alt=media&token=e811a2c0-6f34-4280-8900-f8e7165e26d4" width="60" height="60" style="vertical-align: middle;"> iTech Academia</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="index">Home</a>
+			</li>
+			<li>
+			<a href="achievements">Updates</a>
+			
+			</li>
+			<li>
+			<a href="#">Login</a>
+			<ul>
+				<li><a href="tdashboard">Faculty Login</a></li>
+				<li><a href="slogin">Student Login</a></li>
+			</ul>
+			</li>
+			<li>
+				<a href="https://firebasestorage.googleapis.com/v0/b/department-general.appspot.com/o/iTech_Academia_help.jpg?alt=media&token=d6f50c0f-5baa-44ec-9bf4-58ec43e9ec53" target="__blank">Help</a>
+			
+			</li>
+			
+			<li>
+			<a href="contact">Contact</a>
+			</li>
+			<li>
+				
+			</li>
+		</ul>
+		</nav>
+	</div>
+</div>
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader" class="blogstyle">
+	<div class="row">
+		<div class="six columns">
+			<p class="bread leftalign">
+				 You are here: <a href="index"> Home</a> / <a href="sdashboard">Students Dashboard</a>
+			</p>
+		</div>
+		
+		<div class="six columns">
+			<p class="bread rightalign" style="text-align: right;">
+                
+                <button type="button"><a href="ssignout" style="color: black;">LOGOUT</a></button>
+                
+			</p>
+           <!-- <button type="button"><a href="signout" style="color: black;">LOGOUT</a></button>-->
+            
+		</div>
+	</div>
+</div>
+<div class="hr">
+</div>
+<!-- CONTENT 
+================================================== -->
+<div class="row">
+	<div class="twelve columns noleftmargin">
+	    <!-- MAIN CONTENT -->
+		<div class="twelve columns noleftmargin">
+			
+			<div class="hr">
+			</div>
+			<div class="circledate">
+				<div class="textcircle"><br>
+					 2021
+				</div>
+			</div>
+			<h4>Post your Content</h4>
+			<div class="dots blogdots">
+				<br>
+				<p>Post your Technical Blogs and get featured!<br> Mail us at :<br> <a href="mailto:susmetaa01@gmail.com,colinrolance2001@gmail.com?subject=Feedback on Itech Academia">susmetaa01@gmail.com<br>colinrolance2001@gmail.com</a> </p>
+
+			</div>
+			<br><br><br><br><br><br><br><br>
+			<div class="circledate">
+				<div class="textcircle">
+					- 11 -<br/>July<br/>2021
+				</div>
+			</div>
+			<h4>Interview Preparation Kit</h4>
+			<div class="dots blogdots"><br>
+				<p><b>Under Development</b></p>
+			</div>
+			<br><br><br><br><br><br><br><br>
+			<div class="hr">
+			</div>
+			<div class="circledate">
+				<div class="textcircle">
+					- 30 -<br/>September<br/>2021
+				</div>
+			</div>
+			<h4>Students Forum </h4>
+			<div class="dots blogdots"><br>
+				<p><b>Under Development</b></p>
+			</div>
+			
+			
+		</div>
+		<!-- SIDEBAR -->
+		
+	</div>
+</div>
+<div class="hr">
+</div>
+
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<div class="four columns">
+		<h1>ABOUT US</h1>
+		Our Main Goal is to benefit the Circuit Branch Students of PSG iTech.
+	</div>
+	<div class="four columns">
+		<h1>GET SOCIAL</h1>
+		<a href="https://www.facebook.com/psgitar"><i class="fa fa-facebook-square fa-2x"></i></a>&emsp;&ensp;
+		<a href="https://twitter.com/psgitarofficial"><i class="fa fa-twitter-square fa-2x"></i></a>&emsp;&ensp;
+		<a href="https://www.youtube.com/channel/UCKKixBjQDWjYAFS0MKgYlSg"><i class="fa fa-youtube-play fa-2x"></i></a>&emsp;&ensp;
+		<a href="https://in.linkedin.com/in/psgitar"><i class="fa fa-linkedin-square fa-2x"></i></a>&emsp;&ensp;
+		
+	</div>
+	
+	</footer>
+</div>
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			 &copy;<span class="small"> Copyright 2015 Your Agency Name</span>
+		</div>
+		
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<script src="{% static 'javascripts/foundation.min.js' %}"></script>
+<script src="{% static 'javascripts/elasticslideshow.js' %}"></script>
+<script src="{% static 'javascripts/jquery.carouFredSel-6.0.5-packed.js' %}"></script>
+<script src="{% static 'javascripts/jquery.cycle.js' %}"></script>
+<script src="{% static 'javascripts/app.js' %}"></script>
+<script src="{% static 'javascripts/modernizr.foundation.js' %}"></script>
+<script src="{% static 'javascripts/slidepanel.js' %}"></script>
+<script src="{% static 'javascripts/scrolltotop.js' %}"></script>
+<script src="{% static 'javascripts/hoverIntent.js' %}"></script>
+<script src="{% static 'javascripts/superfish.js' %}"></script>
+<script src="{% static 'javascripts/responsivemenu.js' %}"></script>
+<script src="{% static 'javascripts/jquery.easing.1.3.js' %}"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyANGBWe3WlGaVRz0AlenXeL0CVB-WrTYro",
+        authDomain: "department-webapp.firebaseapp.com",
+        databaseURL: "https://department-webapp-default-rtdb.firebaseio.com",
+        projectId: "department-webapp",
+        storageBucket: "department-webapp.appspot.com",
+        messagingSenderId: "200792524960",
+        appId: "1:200792524960:web:ed6771ec8ff2bf9e86e1c5",
+        measurementId: "G-5RV1GXRFBD"
+      };
+  firebase.initializeApp(firebaseConfig);
+  var storage = firebase.storage();
+  var storageref=storage.ref();
+  
+  function uploadimage(){
+    var file=document.getElementById("files").files[0];
+    var thisref=storageref.child('Achievements/'.concat(file.name)).put(file);
+    thisref.on('state_changed',function(snapshot) {
+        console.log('Done');
+        
+ 
+  }, function(error) {
+  console.log('Error',error);
+ 
+}, function() {
+  thisref.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+    console.log('File available at', downloadURL);
+    document.getElementById("url").value=downloadURL;
+    alert('Uploaded successfully, click submit to continue');
+  });
+});
+}
+</script>
+
+
+
+</body>
+</html>

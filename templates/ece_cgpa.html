@@ -1,0 +1,278 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<link rel="icon" sizes="192x192" href="https://firebasestorage.googleapis.com/v0/b/department-general.appspot.com/o/iTech%20academia.png?alt=media&token=37847fbc-75df-4143-a355-d713c5fd4335">
+<title>iTech Academia</title>
+<!-- CSS Files-->
+<link rel="stylesheet" href="{% static 'stylesheets/style.css' %}">
+
+<link rel="stylesheet" href="{% static 'stylesheets/skins/blue.css' %}">
+<!-- skin color -->
+<link rel="stylesheet" href="{% static 'stylesheets/responsive.css' %}">
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <!-- HIDDEN PANEL 
+================================================== -->
+<div id="panel">
+	<div class="row">
+		<div class="eight columns">
+
+			<p style="font-size: 17px;">Fun Fact: This website in other languages is fun to access, Do you want to try?</p>
+			
+		</div>
+		<div class="four columns">
+			<div id="google_translate_element"></div>
+		
+			
+		</div>
+	</div>
+</div>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			
+			<a href="index">
+				<h4><img src="https://firebasestorage.googleapis.com/v0/b/department-general.appspot.com/o/iTech%20academia.png?alt=media&token=e811a2c0-6f34-4280-8900-f8e7165e26d4" width="60" height="60" style="vertical-align: middle;"> iTech Academia</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="index">Home</a>
+			</li>
+			<li>
+			<a href="achievements">Updates</a>
+			
+			</li>
+			<li>
+			<a href="#">Login</a>
+			<ul>
+				<li><a href="tdashboard">Faculty Login</a></li>
+				<li><a href="slogin">Student Login</a></li>
+			</ul>
+			</li>
+			<li>
+				<a href="https://firebasestorage.googleapis.com/v0/b/department-general.appspot.com/o/iTech_Academia_help.jpg?alt=media&token=d6f50c0f-5baa-44ec-9bf4-58ec43e9ec53" target="__blank">Help</a>
+			
+			</li>
+			
+			<li>
+			<a href="contact">Contact</a>
+			</li>
+			<li>
+				
+			</li>
+		</ul>
+		</nav>
+	</div>
+</div>
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader" class="blogstyle">
+	<div class="row">
+		<div class="eight columns">
+			<p class="bread leftalign">
+				 You are here: <a href="index"> Home</a> / <a href="ece_home">ECE</a> / <a href="ece_cgpa">GPA calculator</a>
+			</p>
+		</div>
+		
+	</div>
+</div>
+<div class="hr">
+</div>
+<!------------------------------ FORMS------------------------------>
+	<div class="row">
+		
+		<!-- FORMS-->
+		<div class="seven columns">
+			<h5>Semester?</h5>
+			<form action ="ece_cgpa" method = "POST">
+			<div class="panel">
+				<h5>Choose Sem</h5>
+				{%csrf_token%}
+					<select name="sem" class="smoothborder" id="sem" style="width: 100px;">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+					</select>
+					<input type="submit" value = "Submit" class="readmore">
+			</div>
+			</form>
+			<h5>GPA Calculator</h5>
+			<form action = 'ece_cgpa' method = "POST">
+				{%csrf_token%}
+				<fieldset>
+					<legend>Semester {{sem_no}}</legend>
+					<div class="row">
+						<div class="eight columns">
+							<input type="hidden" id='semno' name='semno' value={{sem_no}}>
+							{% for i in semm %}
+							<label>{{i}}</label>
+							
+							<select name='{{i}}' id={{i}} class="smoothborder" style="width: 150px;">
+								<option value="10">O</option>
+								<option value="9">A+</option>
+								<option value="8">A</option>
+								<option value="7">B+</option>
+								<option value="6">B</option>
+							</select>
+							<br><br>
+							{% endfor %}
+							
+							<input type="submit" value = "Calculate" class="readmore">
+							
+				</fieldset>
+			</form>
+			<div class="panel callout radius">
+				<h5><b>Your Gpa is</b></h5>
+				{% if ans %}
+				<p>
+					<b>{{ans}}</b><br><br>
+				</p>
+				{% endif %}
+                {{msg}}
+			</div>
+		</div>		
+		<div class="five columns">
+		    <!-- PANELS-->
+			<h5>PANELS</h5>
+			<div class="panel">
+				<h5>Formula to calculate CGPA</h5>
+				<p>
+					<img src="https://firebasestorage.googleapis.com/v0/b/department-webapp.appspot.com/o/Cgpa%20Calculator%2Fcgpa%20formula.png?alt=media&token=5c89fa32-d46a-488a-b2d3-e3b88ad86563">
+				</p>
+				<br>
+				<h5>Grade Points</h5>
+				<p>
+					<img src="https://firebasestorage.googleapis.com/v0/b/department-webapp.appspot.com/o/Cgpa%20Calculator%2FWhatsApp%20Image%202021-07-18%20at%2012.40.46%20AM.jpeg?alt=media&token=e533696e-1f91-4721-ac6c-06759f18e87a" style="height:200px; width: 330px;">
+					</p>
+				</p>
+				<br>
+				<h5>Legends Information List</h5>
+				<p>
+					<b>WHRX</b> : Re-Examination will be conducted<br>
+					<b>WH1</b> : Withheld for suspected Malpractice<br>
+					<b>WH2</b> : Withheld for want of approval of admission / re-admission / transfer from DTE & Director, Student Affairs.<br>
+					<b>WH3</b> : Withheld – Court Case<br>
+					<b>WH4</b> : Waiting clearance from Director (CEP)<br>
+					<b>WH5</b> : Waiting clearance from Director (Student Affairs)<br>
+					<b>WH6</b> : Withheld for want of clarification<br>
+					<b>WH7</b> : Withheld for want of clarification from the Director (AC) about the additional subjects to be written due to the change of regulation<br>
+					<b>WH8</b> : Withheld for want of clarification from the Director (AC) about the equivalency of subjects for the students admitted in v and vii semester)<br>
+					<b>WH9</b> : Withheld for want of clarification from Director, Chairman sports board<br>
+					<b>WH10</b> : Withheld for non cooperation by the college in central valuation<br>
+					<b>WH11</b> : Results will be published along with the lower semester results<br>
+					<b>WH12</b> : Hard copy of Attendance sheets not provided by the College<br>
+					<b>WH13</b>: Examination Fees not paid by the College<br>
+					<b>WH14</b>: Teacher Candidates<br>
+					<b>WH99</b>: Result will be published later<br>
+					<b>WHG10</b>: In-Process<br>
+					<b>WHI</b> : Withheld for want of Internal Mark (Mark not provided by the college)<br>
+					<b>WHE</b> : Withheld for want of Practical Mark (Mark not provided by the college)<br>
+					<b>WHB</b> : Withheld for want of Internal Mark and Practical Mark (Mark not provided by the college)<br>
+					<b>WHV</b> : Withheld for want of Viva-Voce Mark<br>
+					<b>SE</b> : Sports Exemption<br>
+					<b>WD</b> : Withdrawal<br>
+					<b>AB</b> : Absent<br>
+					<b>SA</b> : Shortage of Attendance<br>
+					<b>RA</b> : Re-appearance<br>
+					<b>BRK</b> : Break<br>
+					<b>UA</b> : Absent<br>
+					<b>NR</b> : Not Registered<br>
+					<b>DIS</b> : Discontinued<br>
+					<b>PDEB</b> : Permanently debarred<br>
+				</p>
+			</div>
+			
+			<div class="hr">
+			</div>
+			<!-- PAGINATION-->
+			
+		</div>
+	</div>
+<div class="hr">
+</div>
+
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<div class="eight columns">
+		<h1>ABOUT US</h1>
+		iTech Academia focuses on bringing together various elements into a single<br> entity offering easy access to engineering students of circuitry discipline.
+	</div>
+	<div class="four columns">
+		<h1>GET SOCIAL</h1>
+		
+		<a href="https://www.linkedin.com/in/susmeta-a-30092001/" target="__blank"><i class="fa fa-linkedin-square fa-2x"></i></a>&emsp;&ensp;
+		<a href="https://github.com/susmetaa01" target="__blank"><i class="fa fa-github-square fa-2x"></i></a>&emsp;&ensp;
+		<a href="https://www.linkedin.com/in/colin-rolance-304044209/" target="__blank"><i class="fa fa-linkedin-square fa-2x"></i></a>&emsp;&ensp;
+		<a href="https://github.com/linlance07" target="__blank"><i class="fa fa-github-square fa-2x"></i></a>&emsp;&ensp;
+
+	</div>
+	
+	</footer>
+</div>
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			 &copy;<span class="small"> Copyright iTech Academia</span>
+		</div>
+		
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<script src="{% static 'javascripts/foundation.min.js' %}"></script>
+<script src="{% static 'javascripts/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'javascripts/elasticslideshow.js' %}"></script>
+<script src="{% static 'javascripts/jquery.carouFredSel-6.0.5-packed.js' %}"></script>
+<script src="{% static 'javascripts/jquery.cycle.js' %}"></script>
+<script src="{% static 'javascripts/app.js' %}"></script>
+<script src="{% static 'javascripts/modernizr.foundation.js' %}"></script>
+<script src="{% static 'javascripts/slidepanel.js' %}"></script>
+<script src="{% static 'javascripts/scrolltotop.js' %}"></script>
+<script src="{% static 'javascripts/hoverIntent.js' %}"></script>
+<script src="{% static 'javascripts/superfish.js' %}"></script>
+<script src="{% static 'javascripts/responsivemenu.js' %}"></script>
+</body>
+</html>

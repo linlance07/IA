@@ -1,0 +1,755 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<link rel="icon" sizes="192x192" href="https://firebasestorage.googleapis.com/v0/b/department-general.appspot.com/o/iTech%20academia.png?alt=media&token=37847fbc-75df-4143-a355-d713c5fd4335">
+<title>iTech Academia</title>
+<!-- CSS Files-->
+<link rel="stylesheet" href="{% static 'stylesheets/style.css' %}">
+
+<link rel="stylesheet" href="{% static 'stylesheets/skins/blue.css' %}">
+<!-- skin color -->
+<link rel="stylesheet" href="{% static 'stylesheets/responsive.css' %}">
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <!-- HIDDEN PANEL 
+================================================== -->
+<div id="panel">
+	<div class="row">
+		<div class="eight columns">
+
+			<p style="font-size: 17px;">Fun Fact: This website in other languages is fun to access, Do you want to try?</p>
+			
+		</div>
+		<div class="four columns">
+			<div id="google_translate_element"></div>
+		
+			
+		</div>
+	</div>
+</div>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			
+			<a href="index">
+				<h4><img src="https://firebasestorage.googleapis.com/v0/b/department-general.appspot.com/o/iTech%20academia.png?alt=media&token=e811a2c0-6f34-4280-8900-f8e7165e26d4" width="60" height="60" style="vertical-align: middle;"> iTech Academia</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="index">Home</a>
+			</li>
+			<li>
+			<a href="achievements">Updates</a>
+			
+			</li>
+			<li>
+			<a href="#">Login</a>
+			<ul>
+				<li><a href="tdashboard">Faculty Login</a></li>
+				<li><a href="slogin">Student Login</a></li>
+			</ul>
+			</li>
+			<li>
+				<a href="https://firebasestorage.googleapis.com/v0/b/department-general.appspot.com/o/iTech_Academia_help.jpg?alt=media&token=d6f50c0f-5baa-44ec-9bf4-58ec43e9ec53" target="__blank">Help</a>
+			
+			</li>
+			
+			<li>
+			<a href="contact">Contact</a>
+			</li>
+			<li>
+				
+			</li>
+		</ul>
+		</nav>
+	</div>
+</div>
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader" class="blogstyle">
+	<div class="row">
+		<div class="six columns">
+			<p class="bread leftalign">
+				 You are here: <a href="index"> Home</a> / <a href="tdash">Faculty Dashboard</a> 
+			</p>
+           <!-- <button type="button"><a href="signout" style="color: black;">LOGOUT</a></button>-->
+            
+		</div>
+        <div class="six columns">
+			<p class="bread rightalign" style="text-align: right;">
+                
+                <button type="button"><a href="signout" style="color: black;">LOGOUT</a></button>
+                
+			</p>
+           <!-- <button type="button"><a href="signout" style="color: black;">LOGOUT</a></button>-->
+            
+		</div>
+		
+           
+	</div>
+</div>
+<div class="hr">
+</div>
+<!-- CONTENT 
+================================================== -->
+<div class="row">
+
+
+    
+    
+
+    <!-- TABS-->
+	<div class="twelve columns">
+		<h5>SECTIONS</h5>
+		<dl class="tabs">
+            {% if A %}
+            <dd ><a href="#simple1">Updates Section</a></dd>
+			<dd><a href="#simple2">Department News Section</a></dd>
+			<dd class="active"><a href="#simple3">Notes Section</a></dd>
+            {% else %}
+			<dd class="active"><a href="#simple1">Updates Section</a></dd>
+			<dd><a href="#simple2">Department News Section</a></dd>
+			<dd><a href="#simple3">Notes Section</a></dd>
+            {% endif %}
+		</dl>
+		<ul class="tabs-content">
+            {% if A %}
+			<li id="simple1Tab">
+
+            {% else %}
+			<li class="active" id="simple1Tab">
+            {% endif %}
+                <h5>Upload Updates</h5>
+                
+                <div class="row">
+                    <div class="six columns">
+                        <form action='tdashboard' method='POST' enctype="multipart/form-data">
+                            {%csrf_token%}
+                            <fieldset>
+                                <legend>Upload Updates</legend>
+                                
+                                    <div class="six columns">
+                                        <label>Title</label>
+                                        <input type="text" class="smoothborder" id='title' name='title'/>
+                                        <label>Upload Image</label>
+                                        
+
+                                        <input type="file" name="files[]" id="files" ><br><br>
+                                        <input type="hidden" name="url" id="url">
+                                        
+                                        <button type="button" onclick='uploadimage(a=document.getElementById("title").value)' class="readmore">Upload Image</button><br><br>
+                                        
+
+                                        <label>Description</label>
+                                        <textarea rows="4" cols="50" class="smoothborder" name="desc" maxlength="6000" minlength="150"> </textarea>
+                                        
+
+                                        <label>Date </label>
+                                        <input type="date" class="smoothborder" name='date'/>
+                                        <input type="submit" value ="submit" class="readmore"><br><br>
+                                        
+                                    </div>
+                                
+                                
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="six columns">
+                        
+                            <br>
+                            <div class="panel">
+                                <h5>Instruction panel.</h5>
+                                <p>
+                                    step 1<br>
+                                    step 2<br>
+                                    step 3<br>
+                                </p>
+                            </div>
+                            
+                        
+                    </div>
+                    
+                        <div class="twelve columns">
+                            <h5>Delete Updates</h5>
+                            <hr>
+                            <ol>
+
+                                {%for i,j in achdic.items%}
+                                <form action="#" method="POST">
+                                    {%csrf_token%}
+                                <li>
+                                    
+                                    <input type="hidden" name="namee" id="namee" value={{j.3}}>
+
+                                    {{j.3}}<button type="button" onclick="deleteFileachievement('{{j.3}}')" class="readmore">DELETE</button> <br>
+                                    &emsp;&emsp;{{j.1}} 
+                                    
+                                </li> 
+                                </form>  
+                                <br>     
+                                {% endfor %}                 
+                            </ol>
+                        </div>
+                    
+                </div>
+                
+                
+			</li>
+            
+			<li id="simple2Tab">
+                <h5>Upload News</h5>
+                
+                <div class="row">
+                    <div class="six columns">
+                        <form action='tdashboard' method='POST' enctype="multipart/form-data">
+                            {%csrf_token%}
+                            <fieldset>
+                                <legend>Upload departmental news</legend>
+                                    <div class="six columns">
+                                        <label>Choose Department</label>
+                                        <select name="ndept" class="smoothborder" id="ndept" style="width: 100px;">
+                                            <option value="CSE">CSE</option>
+                                            <option value="ECE">ECE</option>
+                                            <option value="EEE">EEE</option>
+                                        </select>
+                                        <label>Title</label>
+                                        <input type="text" class="smoothborder" name='ntitle'/>
+                                        <label>Date</label>
+                                        <input type="date" class="smoothborder" name='ndate'/>
+                                        <label>Description</label>
+                                        <textarea rows="4" cols="50" class="smoothborder" name="ndesc" minlength="150"> </textarea>
+                                        <input type="submit" value ="submit" class="readmore"><br><br>
+                                        
+                                        
+                                    </div>
+                                
+                                
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="six columns">
+                        
+                            <br>
+                            <div class="panel">
+                                <h5>This is a regular panel 2</h5>
+                                <p>
+                                    It has an easy to override visual style, and is appropriately subdued.
+                                </p>
+                            </div>
+                            
+                        
+                    </div>
+                    <div class="row">
+                        <div class="twelve columns">
+                            <h5>Delete News</h5>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="four columns">
+                            <h5>CSE</h5>
+                            <p><ol>
+                                {%for i,j in csedic.items%}  
+
+                                 <li><b>{{j.2}}</b> <button type="button" onclick="deletenews('CSE','{{j.2}}')" class="readmore">Delete</button><br>
+                                   &emsp;&emsp; {{j.1}}<br><br>
+                                   
+                                     
+
+                                 </li>
+                                {% endfor %}                       
+                            </ol>  </p>
+                        </div>
+                        <div class="four columns">
+                            <h5>ECE</h5>
+                            <p><ol>
+                                {%for i,j in ecedic.items%}  
+
+                                <li><b>{{j.2}}</b> <button type="button" onclick="deletenews('ECE','{{j.2}}')" class="readmore">Delete</button><br>
+
+                                   &emsp;&emsp; {{j.1}}<br><br>
+                                     
+
+                                 </li>
+                                {% endfor %}                       
+                            </ol>  </p>
+                        </div>
+                        <div class="four columns">
+                            <h5>EEE</h5>
+                            <p><ol>
+                                {%for i,j in eeedic.items%}  
+
+                                <li><b>{{j.2}}</b> <button type="button" onclick="deletenews('EEE','{{j.2}}')" class="readmore">Delete</button><br>
+
+                                   &emsp;&emsp; {{j.1}}<br><br>
+                                     
+
+                                 </li>
+                                {% endfor %}                       
+                            </ol>  </p>
+                        </div>
+                    </div>
+                
+                </div>
+            </li>
+            {% if A %}
+			<li class="active" id="simple3Tab">
+            {% else %}
+			<li  id="simple3Tab">
+            {% endif %}
+                <h5>Upload Notes</h5>
+                
+                <div class="row">
+                    <div class="six columns">
+                        <form enctype="multipart/form-data" method="POST" action="tdashboard">
+                            {% csrf_token %}
+                            <fieldset>
+                                <legend>Upload notes</legend>
+                                
+                                    <div class="six columns">
+                                        <label>Filename</label>
+                                        <input type="text" class="smoothborder" name='fname' id='fname'/>
+                                        <label>Choose Department</label>
+                                        <select name="dept" class="smoothborder" id="dept" style="width: 100px;">
+                                            <option value="CSE">CSE</option>
+                                            <option value="ECE">ECE</option>
+                                            <option value="EEE">EEE</option>
+                                    
+                                        </select>
+                                        <br><br>
+                                        <label>Choose Semester</label>
+                                        <select name="sem" class="smoothborder" id="sem" style="width: 100px;">
+                                            <option value="Sem1">Semester 1</option>
+                                            <option value="Sem2">Semester 2</option>
+                                            <option value="Sem3">Semester 3</option>
+                                            <option value="Sem4">Semester 4</option>
+                                            <option value="Sem5">Semester 5</option>
+                                            <option value="Sem6">Semester 6</option>
+                                            <option value="Sem7">Semester 7</option>
+                                            <option value="Sem8">Semester 8</option>
+                                        </select><br>
+                                        <br>
+                                        <label>Choose Subject</label>
+                                        <select class="ui search dropdown" name ="sub" id="sub">
+                                            <option value="">Choose Subject</option>
+                                            <option value="EMF">EMF</option>
+                                            <option value="CT">CT</option>
+                                            <option value="LIC">LIC</option>
+                                            <option value="PRP">PRP</option>
+                                            <option value="EVS">EVS</option>
+                                            <option value="EC2">EC II</option>
+                                          </select>
+                                          <br><br>
+                                        <label>Upload file</label>
+                                        <input type="file" name="pdfs[]" id="pdfs" ><br><br>
+                                        <input type="hidden" name="pdfurl" id="pdfurl">
+                                        <button type="button" onclick='uploadimage(document.getElementById("fname").value)' class="readmore">Upload pdf</button><br><br>
+                                        <input type="submit" value ="submit" class="readmore"><br><br>
+                                        
+                                    </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                
+        
+                    <div class="six columns">
+                        
+                            <br>
+                            <div class="panel">
+                                <h5>This is a regular panel 3</h5>
+                                <p>
+                                    It has an easy to override visual style, and is appropriately subdued.
+                                </p>
+                            </div>
+                            
+                        
+                    </div>
+                    <div class="twelve columns">
+                        <h5>View Notes</h5>
+
+                        <hr>
+                        <form enctype="multipart/form-data" method="POST" action="tdashboard">
+                            {% csrf_token %}
+                            <fieldset>
+                                <legend>View notes</legend>
+                                
+                                    <div class="six columns">
+                                        
+                                        <label>Choose Department</label>
+                                        <select name="Dept" class="smoothborder" id="Dept" style="width: 100px;">
+                                            <option value="CSE">CSE</option>
+                                            <option value="ECE">ECE</option>
+                                            <option value="EEE">EEE</option>
+                                    
+                                        </select>
+                                        <br><br>
+                                        <label>Choose Semester</label>
+                                        <select name="Sem" class="smoothborder" id="Sem" style="width: 100px;">
+                                            <option value="Sem1">Semester 1</option>
+                                            <option value="Sem2">Semester 2</option>
+                                            <option value="Sem3">Semester 3</option>
+                                            <option value="Sem4">Semester 4</option>
+                                            <option value="Sem5">Semester 5</option>
+                                            <option value="Sem6">Semester 6</option>
+                                            <option value="Sem7">Semester 7</option>
+                                            <option value="Sem8">Semester 8</option>
+                                        </select><br>
+                                        <br>
+                                        <label>Choose Subject</label>
+                                        <select class="ui search dropdown" name ="Sub" id="Sub">
+                                            <option value="">Choose Subject</option>
+                                            <option value="EMF">EMF</option>
+                                            <option value="CT">CT</option>
+                                            <option value="LIC">LIC</option>
+                                            <option value="PRP">PRP</option>
+                                            <option value="EVS">EVS</option>
+                                            <option value="EC2">EC II</option>
+                                          </select>
+                                          <br><br>
+                                        
+                                        <input type="submit" value ="submit" class="readmore"><br><br>
+                                        
+                                    </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="twelve columns">
+                        <h5>Delete Notes</h5>
+                        <hr>
+                        <ol>
+        
+                            {%for j in book %}
+                            <form action="#" method="POST">
+                                {%csrf_token%}
+                            <li>
+                                <input type="hidden" name="book_dept" id="book_dept" value={{DEPT}}>
+                                <input type="hidden" name="book_sem" id="book_sem" value={{SEM}}>
+                                <input type="hidden" name="book_sub" id="book_sub" value={{SUB}}>
+                                <input type="hidden" name="book_name" id="book_name" value={{j}}>
+                                
+        
+                                {{j}}
+                                <button type="button" onclick="deleteFilenotes('{{j}}')" class="readmore">DELETE</button>
+                                
+                            </li> 
+                            </form>  
+                            <br>     
+                            {% endfor %}                 
+                        </ol>
+                     <!--    {% if BB %}<ol>
+                            {% for j in BB %}
+                                <li>{{j}}<br><br></li>
+                            {% endfor %}</ol>
+                        {% endif %}  -->
+                      
+                    </div>
+                </div>
+              </li>
+		</ul>
+	</div>
+	<!-- ACCORDIONS-->
+	
+</div>
+	
+
+<div class="hr">
+</div>
+
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<div class="eight columns">
+		<h1>ABOUT US</h1>
+		iTech Academia focuses on bringing together various elements into a single<br> entity offering easy access to engineering students of circuitry discipline.
+	</div>
+	<div class="four columns">
+		<h1>GET SOCIAL</h1>
+		
+		<a href="https://www.linkedin.com/in/susmeta-a-30092001/" target="__blank"><i class="fa fa-linkedin-square fa-2x"></i></a>&emsp;&ensp;
+		<a href="https://github.com/susmetaa01" target="__blank"><i class="fa fa-github-square fa-2x"></i></a>&emsp;&ensp;
+		<a href="https://www.linkedin.com/in/colin-rolance-304044209/" target="__blank"><i class="fa fa-linkedin-square fa-2x"></i></a>&emsp;&ensp;
+		<a href="https://github.com/linlance07" target="__blank"><i class="fa fa-github-square fa-2x"></i></a>&emsp;&ensp;
+
+	</div>
+	
+	</footer>
+</div>
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			 &copy;<span class="small"> Copyright iTech Academia</span>
+		</div>
+		
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<script src="{% static 'javascripts/foundation.min.js' %}"></script>
+<script src="{% static 'javascripts/elasticslideshow.js' %}"></script>
+<script src="{% static 'javascripts/jquery.carouFredSel-6.0.5-packed.js' %}"></script>
+<script src="{% static 'javascripts/jquery.cycle.js' %}"></script>
+<script src="{% static 'javascripts/app.js' %}"></script>
+<script src="{% static 'javascripts/modernizr.foundation.js' %}"></script>
+<script src="{% static 'javascripts/slidepanel.js' %}"></script>
+<script src="{% static 'javascripts/scrolltotop.js' %}"></script>
+<script src="{% static 'javascripts/hoverIntent.js' %}"></script>
+<script src="{% static 'javascripts/superfish.js' %}"></script>
+<script src="{% static 'javascripts/responsivemenu.js' %}"></script>
+<script src="{% static 'javascripts/jquery.easing.1.3.js' %}"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyANGBWe3WlGaVRz0AlenXeL0CVB-WrTYro",
+        authDomain: "department-webapp.firebaseapp.com",
+        databaseURL: "https://department-webapp-default-rtdb.firebaseio.com",
+        projectId: "department-webapp",
+        storageBucket: "department-webapp.appspot.com",
+        messagingSenderId: "200792524960",
+        appId: "1:200792524960:web:ed6771ec8ff2bf9e86e1c5",
+        measurementId: "G-5RV1GXRFBD"
+      };
+      var fbcse = firebase.initializeApp({
+        apiKey: "AIzaSyBbp0KWKPlb7H7dJ-8je7tyeQydvzUzPYU",
+        authDomain: "department-cse-46e59.firebaseapp.com",
+        databaseURL: "https://department-cse-46e59-default-rtdb.firebaseio.com",
+        projectId: "department-cse-46e59",
+        storageBucket: "department-cse-46e59.appspot.com",
+        messagingSenderId: "130245589247",
+        appId: "1:130245589247:web:1fa1ec90a09a14c43ef4ca"
+    }, "fbcse");
+  
+  
+  var fbeee = firebase.initializeApp({
+    apiKey: "AIzaSyCQZJujBxhb-i5sPubEkG1bkSFNqLYtJZk",
+    authDomain: "department-eee-ca484.firebaseapp.com",
+    databaseURL: "https://department-eee-ca484-default-rtdb.firebaseio.com",
+    projectId: "department-eee-ca484",
+    storageBucket: "department-eee-ca484.appspot.com",
+    messagingSenderId: "396555052186",
+    appId: "1:396555052186:web:328ae5549b048965baeb23",
+    measurementId: "G-M74HL10RPZ"
+}, "fbeee");
+  firebase.initializeApp(firebaseConfig);
+  var storageece = firebase.storage();
+  var storageref=storageece.ref();
+  var db = firebase.database().ref();
+
+  
+  var storageeee = fbeee.storage();
+  var storagerefeee=storageeee.ref();
+  var dbeee = fbeee.database().ref();
+
+  
+  var storagecse = fbcse.storage();
+  var storagerefcse=storagecse.ref();
+  var dbcse = fbcse.database().ref();
+  
+
+  function uploadimage(img){
+    var va=img;
+    if (document.getElementById('title').value){
+            var file=document.getElementById("files").files[0];
+            var thisref=storageref.child('Achievements/'.concat(va)).put(file);
+            thisref.on('state_changed',function(snapshot) {
+                console.log('Done');
+                
+        
+        }, function(error) {
+        console.log('Error',error);
+        
+        }, function() {
+        thisref.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+            console.log('File available at', downloadURL);
+            document.getElementById("url").value=downloadURL;
+            alert('Uploaded successfully, click submit to continue');
+        });
+        });}
+    else if (document.getElementById("fname").value)
+    {
+        
+        var pdf=document.getElementById("pdfs").files[0];
+        var dept=document.getElementById("dept").value;
+        var sem=document.getElementById("sem").value;
+        var sub=document.getElementById("sub").value;
+       if (dept == "CSE"){
+        var thisref=storagerefcse.child(dept.concat('/').concat(dept.toLowerCase()).concat('_notes').concat('/').concat(sem).concat('/').concat(sub).concat('/').concat(va)).put(pdf);
+
+       }
+       else if (dept == "EEE"){
+        var thisref=storagerefeee.child(dept.concat('/').concat(dept.toLowerCase()).concat('_notes').concat('/').concat(sem).concat('/').concat(sub).concat('/').concat(va)).put(pdf);
+
+       }
+       else{
+        var thisref=storageref.child(dept.concat('/').concat(dept.toLowerCase()).concat('_notes').concat('/').concat(sem).concat('/').concat(sub).concat('/').concat(va)).put(pdf);
+
+       }
+        
+
+        thisref.on('state_changed',function(snapshot) {
+            console.log('Done');
+            
+    
+    }, function(error) {
+    console.log('Error',error);
+    
+    }, function() {
+    thisref.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+        console.log('File available at', downloadURL);
+        document.getElementById("pdfurl").value=downloadURL;
+        alert('Uploaded successfully, click submit to continue');
+    });
+    });
+        }
+}
+
+function deleteFileachievement(data) {
+        const storageRef = firebase.storage().ref();
+        var N=data;
+  
+    
+        
+        db.child('Achievements').child(N).remove()
+        
+        // [START storage_delete_file]
+        // Create a reference to the file to delete
+        var desertRef = storageRef.child('Achievements/'.concat(N));
+
+        // Delete the file
+        desertRef.delete().then(() => {
+            
+            document.location.reload();
+        }).catch((error) => {
+            // Uh-oh, an error occurred!
+        });
+        // [END storage_delete_file]
+    }
+    
+    
+        
+
+
+
+function deleteFilenotes(data) {
+        
+        
+
+        var N=data;
+  
+        
+        var dept=document.getElementById("book_dept").value;
+        var sem=document.getElementById("book_sem").value;
+        var sub=document.getElementById("book_sub").value;
+        // [START storage_delete_file]
+        // Create a reference to the file to delete
+        if (dept == "CSE"){
+            const storageRefcse = fbcse.storage().ref();
+            dbcse.child(dept).child(sem).child(sub).child(N).remove()
+            var desertRef = storageRefcse.child(dept.concat('/').concat(dept.toLowerCase()).concat('_notes').concat('/').concat(sem).concat('/').concat(sub).concat('/').concat(N));
+
+        }
+        else if (dept == "EEE"){
+            const storageRefeee = fbeee.storage().ref();
+
+            dbeee.child(dept).child(sem).child(sub).child(N).remove()
+            var desertRef = storageRefeee.child(dept.concat('/').concat(dept.toLowerCase()).concat('_notes').concat('/').concat(sem).concat('/').concat(sub).concat('/').concat(N));
+
+        }
+        else{
+            const storageRef = fb.storage().ref();
+            db.child(dept).child(sem).child(sub).child(N).remove()
+            var desertRef = storageRef.child(dept.concat('/').concat(dept.toLowerCase()).concat('_notes').concat('/').concat(sem).concat('/').concat(sub).concat('/').concat(N));
+
+        }
+        
+        // Delete the file
+        desertRef.delete().then(() => {
+            alert('SUCCESS');
+            document.location.reload();
+        }).catch((error) => {
+            // Uh-oh, an error occurred!
+        });
+        }
+    
+
+function deletenews(data,heading) {
+
+var N=data;
+
+if (N == 'CSE'){
+    alert("CSE");
+    
+    dbcse.child('News').child(N).child(heading).remove()
+
+}
+else if (N == 'EEE'){
+    alert("EEE");
+    
+    dbeee.child('News').child(N).child(heading).remove()
+
+}
+else{
+    dbece.child('News').child(N).child(heading).remove()
+
+}
+
+
+// [START storage_delete_file]
+// Create a reference to the file to delete
+document.location.reload();
+
+// Delete the file
+
+}        
+
+function logout(){
+    firebase.auth().signOut().then(function() {
+    alert("Sucessfully Logged out");
+    }, function(error) {
+    alert("Something went wrong");
+    });
+}
+  
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<title>EEE</title>
+
+<!-- CSS Files-->
+<link rel="stylesheet" href="{% static 'stylesheets/style.css' %}">
+
+<link rel="stylesheet" href="{% static 'stylesheets/skins/blue.css' %}">
+<!-- skin color -->
+<link rel="stylesheet" href="{% static 'stylesheets/responsive.css' %}">
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!-- HIDDEN PANEL 
+================================================== -->
+<div id="panel">
+	<div class="row">
+		<div class="twelve columns">
+			<img src="http://www.wowthemes.net/demo/studiofrancesca/images/info.png" class="pics" alt="info">
+			<div class="infotext">
+				 Thank you for visiting my theme! Replace this with your message to visitors.
+			</div>
+		</div>
+	</div>
+</div>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			<a href="index">
+			<h4>iTech Academia</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="index">Home</a>
+			</li>
+			<li>
+			<a href="achievements">Achievements</a>
+			
+			</li>
+			<li>
+			<a href="#">Login</a>
+			<ul>
+				<li><a href="#">Faculty Login</a></li>
+				<li><a href="#">Student Login</a></li>
+			</ul>
+			</li>
+			<li>
+			<a href="#">Help</a>
+			
+			</li>
+			
+			<li>
+			<a href="contact">Contact</a>
+			</li>
+		</ul>
+		</nav>
+	</div>
+</div>
+<div class="clear">
+</div>
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader" class="blogstyle">
+	<div class="row">
+		<div class="eight columns">
+			<p class="bread leftalign">
+				 You are here: <a href="index"> Home</a> / <a href="tdash">Faculty Dashboard</a>
+			</p>
+		</div>
+		
+	</div>
+</div>
+<div class="hr">
+</div>
+<!-- CONTENT 
+================================================== -->
+<div class="row">
+    <!-- TABS-->
+	<div class="twelve columns">
+		<h5>TABS</h5>
+		<dl class="tabs">
+			<dd class="active"><a href="#simple1">Upload Achievements</a></dd>
+			<dd><a href="#simple2">Upload Department News</a></dd>
+			<dd><a href="#simple3">Upload Notes</a></dd>
+		</dl>
+		<ul class="tabs-content">
+			<li class="active" id="simple1Tab">
+                <h5>FORMS</h5>
+                
+                <div class="row">
+                    <div class="six columns">
+                        <form>
+                            <fieldset>
+                                <legend>Form Title Here</legend>
+                                
+                                    <div class="six columns">
+                                        <label>Name</label>
+                                        <input type="text" class="smoothborder"/>
+                                        <label>Occupation</label>
+                                        <input type="text" class="smoothborder"/>
+                                        <label>Name</label>
+                                        <input type="text" class="smoothborder"/>
+                                        <label>Occupation</label>
+                                        <input type="text" class="smoothborder"/>
+                                        
+                                    </div>
+                                
+                                
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="six columns">
+                        
+                            <br>
+                            <div class="panel">
+                                <h5>This is a regular panel.</h5>
+                                <p>
+                                    It has an easy to override visual style, and is appropriately subdued.
+                                </p>
+                            </div>
+                            
+                        
+                    </div>
+                </div>
+                
+                
+			</li>
+            
+			<li id="simple2Tab">
+                <h5>FORMS 2</h5>
+                
+                <div class="row">
+                    <div class="six columns">
+                        <form>
+                            <fieldset>
+                                <legend>Form Title Here</legend>
+                                
+                                    <div class="six columns">
+                                        <label>Name</label>
+                                        <input type="text" class="smoothborder"/>
+                                        <label>Occupation</label>
+                                        <input type="text" class="smoothborder"/>
+                                        <label>Name</label>
+                                        <input type="text" class="smoothborder"/>
+                                        <label>Occupation</label>
+                                        <input type="text" class="smoothborder"/>
+                                        
+                                    </div>
+                                
+                                
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="six columns">
+                        
+                            <br>
+                            <div class="panel">
+                                <h5>This is a regular panel 2</h5>
+                                <p>
+                                    It has an easy to override visual style, and is appropriately subdued.
+                                </p>
+                            </div>
+                            
+                        
+                    </div>
+                </div>
+            </li>
+			<li id="simple3Tab">
+                <h5>FORMS 3</h5>
+                
+                <div class="row">
+                    <div class="six columns">
+                        <form>
+                            <fieldset>
+                                <legend>Form Title Here</legend>
+                                
+                                    <div class="six columns">
+                                        <label>Name</label>
+                                        <input type="text" class="smoothborder"/>
+                                        <label>Occupation</label>
+                                        <input type="text" class="smoothborder"/>
+                                        <label>Name</label>
+                                        <input type="text" class="smoothborder"/>
+                                        <label>Occupation</label>
+                                        <input type="text" class="smoothborder"/>
+                                        
+                                    </div>
+                                
+                                
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="six columns">
+                        
+                            <br>
+                            <div class="panel">
+                                <h5>This is a regular panel 3</h5>
+                                <p>
+                                    It has an easy to override visual style, and is appropriately subdued.
+                                </p>
+                            </div>
+                            
+                        
+                    </div>
+                </div>
+              </li>
+		</ul>
+	</div>
+	<!-- ACCORDIONS-->
+	
+</div>
+	
+	
+<div class="hr">
+</div>
+
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<div class="four columns">
+		<h1>ABOUT US</h1>
+		Our Main Goal is to benefit the Circuit Branch Students of PSG iTech.
+	</div>
+	<div class="four columns">
+		<h1>GET SOCIAL</h1>
+		<a href="https://www.facebook.com/psgitar"><i class="fa fa-facebook-square fa-2x"></i></a>&emsp;&ensp;
+		<a href="https://twitter.com/psgitarofficial"><i class="fa fa-twitter-square fa-2x"></i></a>&emsp;&ensp;
+		<a href="https://www.youtube.com/channel/UCKKixBjQDWjYAFS0MKgYlSg"><i class="fa fa-youtube-play fa-2x"></i></a>&emsp;&ensp;
+		<a href="https://in.linkedin.com/in/psgitar"><i class="fa fa-linkedin-square fa-2x"></i></a>&emsp;&ensp;
+		
+	</div>
+	
+	</footer>
+</div>
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			 &copy;<span class="small"> Copyright 2015 Your Agency Name</span>
+		</div>
+		
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<script src="{% static 'javascripts/foundation.min.js' %}"></script>
+<script src="{% static 'javascripts/elasticslideshow.js' %}"></script>
+<script src="{% static 'javascripts/jquery.carouFredSel-6.0.5-packed.js' %}"></script>
+<script src="{% static 'javascripts/jquery.cycle.js' %}"></script>
+<script src="{% static 'javascripts/app.js' %}"></script>
+<script src="{% static 'javascripts/modernizr.foundation.js' %}"></script>
+<script src="{% static 'javascripts/slidepanel.js' %}"></script>
+<script src="{% static 'javascripts/scrolltotop.js' %}"></script>
+<script src="{% static 'javascripts/hoverIntent.js' %}"></script>
+<script src="{% static 'javascripts/superfish.js' %}"></script>
+<script src="{% static 'javascripts/responsivemenu.js' %}"></script>
+<script src="{% static 'javascripts/jquery.easing.1.3.js' %}"></script>
+</body>
+</html>

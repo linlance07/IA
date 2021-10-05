@@ -1,0 +1,361 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<title>EEE</title>
+
+<!-- CSS Files-->
+<link rel="stylesheet" href="{% static 'stylesheets/style.css' %}">
+
+<link rel="stylesheet" href="{% static 'stylesheets/skins/blue.css' %}">
+<!-- skin color -->
+<link rel="stylesheet" href="{% static 'stylesheets/responsive.css' %}">
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+   
+
+</head>
+<body>
+<!-- HIDDEN PANEL 
+================================================== -->
+<div id="panel">
+	<div class="row">
+		<div class="twelve columns">
+			<img src="http://www.wowthemes.net/demo/studiofrancesca/images/info.png" class="pics" alt="info">
+			<div class="infotext">
+				 Thank you for visiting my theme! Replace this with your message to visitors.
+			</div>
+		</div>
+	</div>
+</div>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			<a href="index">
+			<h4>iTech Academia</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="index">Home</a>
+			</li>
+			<li>
+			<a href="achievements">Achievements</a>
+			
+			</li>
+			<li>
+			<a href="#">Login</a>
+			<ul>
+				<li><a href="#">Faculty Login</a></li>
+				<li><a href="#">Student Login</a></li>
+			</ul>
+			</li>
+			<li>
+			<a href="#">Help</a>
+			
+			</li>
+			
+			<li>
+			<a href="contact">Contact</a>
+			</li>
+		</ul>
+		</nav>
+	</div>
+</div>
+<div class="clear">
+</div>
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader" class="blogstyle">
+	<div class="row">
+		<div class="eight columns">
+			<p class="bread leftalign">
+				 You are here: <a href="index"> Home</a> / <a href="tdash">Faculty Dashboard</a>
+			</p>
+		</div>
+		
+	</div>
+</div>
+<div class="hr">
+</div>
+<!-- CONTENT 
+================================================== -->
+<div class="row">
+    <!-- TABS-->
+	<div class="twelve columns">
+		<h5>TABS</h5>
+		<dl class="tabs">
+			<dd ><a href="tdashboard">Upload Achievements</a></dd>
+			<dd><a href="tdashboard">Upload Department News</a></dd>
+			<dd class="active"><a href="#">Upload Notes</a></dd>
+		</dl>
+		
+<div class="row">
+    <ul class="tabs-content">
+        <li class="active" id="simple1Tab">
+        <h5>Upload Notes</h5>
+        
+        <div class="row">
+            <div class="six columns">
+                <form enctype="multipart/form-data" method="POST" action="uploadnotes">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>Upload notes</legend>
+                        
+                            <div class="six columns">
+                                <label>Filename</label>
+                                <input type="text" class="smoothborder" name='fname' id='fname'/>
+                                <label>Choose Department</label>
+                                <select name="dept" class="smoothborder" id="dept" style="width: 100px;">
+                                    <option value="CSE">CSE</option>
+                                    <option value="ECE">ECE</option>
+                                    <option value="EEE">EEE</option>
+                            
+                                </select>
+                                <br><br>
+                                <label>Choose Semester</label>
+                                <select name="sem" class="smoothborder" id="sem" style="width: 100px;">
+                                    <option value="Sem1">Semester 1</option>
+                                    <option value="Sem2">Semester 2</option>
+                                    <option value="Sem3">Semester 3</option>
+                                    <option value="Sem4">Semester 4</option>
+                                    <option value="Sem5">Semester 5</option>
+                                    <option value="Sem6">Semester 6</option>
+                                    <option value="Sem7">Semester 7</option>
+                                    <option value="Sem8">Semester 8</option>
+                                </select><br>
+                                <br>
+                                <label>Choose Subject</label>
+                                <select class="ui search dropdown" name ="sub" id="sub">
+                                    <option value="">Choose Subject</option>
+                                    <option value="EMF">EMF</option>
+                                    <option value="CT">CT</option>
+                                    <option value="LIC">LIC</option>
+                                    <option value="PRP">PRP</option>
+                                    <option value="EVS">EVS</option>
+                                    <option value="EC2">EC II</option>
+                                  </select>
+                                  <br><br>
+                                <label>Upload file</label>
+                                <input type="file" name="files[]" id="files" ><br><br>
+                                <input type="hidden" name="pdfurl" id="pdfurl">
+                                <button type="button" onclick='uploadpdf()' class="readmore">Upload pdf</button><br><br>
+                                <input type="submit" value ="submit" class="readmore"><br><br>
+                                
+                            </div>
+                    </fieldset>
+                </form>
+            </div>
+        
+
+            <div class="six columns">
+                
+                    <br>
+                    <div class="panel">
+                        <h5>This is a regular panel 3</h5>
+                        <p>
+                            It has an easy to override visual style, and is appropriately subdued.
+                        </p>
+                    </div>
+                    
+                
+            </div>
+            <div class="twelve columns">
+                <h5>Delete Notes</h5>
+                <hr>
+                <form enctype="multipart/form-data" method="POST" action="uploadnotes">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>Delete notes</legend>
+                        
+                            <div class="six columns">
+                                
+                                <label>Choose Department</label>
+                                <select name="Dept" class="smoothborder" id="Dept" style="width: 100px;">
+                                    <option value="CSE">CSE</option>
+                                    <option value="ECE">ECE</option>
+                                    <option value="EEE">EEE</option>
+                            
+                                </select>
+                                <br><br>
+                                <label>Choose Semester</label>
+                                <select name="Sem" class="smoothborder" id="Sem" style="width: 100px;">
+                                    <option value="Sem1">Semester 1</option>
+                                    <option value="Sem2">Semester 2</option>
+                                    <option value="Sem3">Semester 3</option>
+                                    <option value="Sem4">Semester 4</option>
+                                    <option value="Sem5">Semester 5</option>
+                                    <option value="Sem6">Semester 6</option>
+                                    <option value="Sem7">Semester 7</option>
+                                    <option value="Sem8">Semester 8</option>
+                                </select><br>
+                                <br>
+                                <label>Choose Subject</label>
+                                <select class="ui search dropdown" name ="Sub" id="Sub">
+                                    <option value="">Choose Subject</option>
+                                    <option value="EMF">EMF</option>
+                                    <option value="CT">CT</option>
+                                    <option value="LIC">LIC</option>
+                                    <option value="PRP">PRP</option>
+                                    <option value="EVS">EVS</option>
+                                    <option value="EC2">EC II</option>
+                                  </select>
+                                  <br><br>
+                                
+                                <input type="submit" value ="submit" class="readmore"><br><br>
+                                
+                            </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="twelve columns">
+                <h5>Delete Notes</h5>
+                <hr>
+                <ol>
+
+                    {%for j in book %}
+                    <form action="dele" method="POST">
+                        {%csrf_token%}
+                    <li>
+                        <input type="hidden" name="book_dept" id="book_dept" value={{DEPT}}>
+                        <input type="hidden" name="book_sem" id="book_sem" value={{SEM}}>
+                        <input type="hidden" name="book_sub" id="book_sub" value={{SUB}}>
+                        <input type="hidden" name="book_name" id="book_name" value={{j}}>
+
+                        {{j}}<input type="submit" value ="Delete Note">  
+                        <button type="button" onclick="deleteFile()" class="readmore">DELETE</button>
+                        
+                    </li> 
+                    </form>  
+                    <br>     
+                    {% endfor %}                 
+                </ol>
+                {% if msg %}
+                {{msg}}
+                {% endif %}
+            </div>
+        </div>
+      </li>
+    </ul>
+	</div>
+</div>
+</div>
+
+	
+	
+<div class="hr">
+</div>
+
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<div class="four columns">
+		<h1>ABOUT US</h1>
+		Our Main Goal is to benefit the Circuit Branch Students of PSG iTech.
+	</div>
+	<div class="four columns">
+		<h1>GET SOCIAL</h1>
+		<a href="https://www.facebook.com/psgitar"><i class="fa fa-facebook-square fa-2x"></i></a>&emsp;&ensp;
+		<a href="https://twitter.com/psgitarofficial"><i class="fa fa-twitter-square fa-2x"></i></a>&emsp;&ensp;
+		<a href="https://www.youtube.com/channel/UCKKixBjQDWjYAFS0MKgYlSg"><i class="fa fa-youtube-play fa-2x"></i></a>&emsp;&ensp;
+		<a href="https://in.linkedin.com/in/psgitar"><i class="fa fa-linkedin-square fa-2x"></i></a>&emsp;&ensp;
+		
+	</div>
+	
+	</footer>
+</div>
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			 &copy;<span class="small"> Copyright 2015 Your Agency Name</span>
+		</div>
+		
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<script src="{% static 'javascripts/foundation.min.js' %}"></script>
+<script src="{% static 'javascripts/elasticslideshow.js' %}"></script>
+<script src="{% static 'javascripts/jquery.carouFredSel-6.0.5-packed.js' %}"></script>
+<script src="{% static 'javascripts/jquery.cycle.js' %}"></script>
+<script src="{% static 'javascripts/app.js' %}"></script>
+<script src="{% static 'javascripts/modernizr.foundation.js' %}"></script>
+<script src="{% static 'javascripts/slidepanel.js' %}"></script>
+<script src="{% static 'javascripts/scrolltotop.js' %}"></script>
+<script src="{% static 'javascripts/hoverIntent.js' %}"></script>
+<script src="{% static 'javascripts/superfish.js' %}"></script>
+<script src="{% static 'javascripts/responsivemenu.js' %}"></script>
+<script src="{% static 'javascripts/jquery.easing.1.3.js' %}"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyANGBWe3WlGaVRz0AlenXeL0CVB-WrTYro",
+        authDomain: "department-webapp.firebaseapp.com",
+        databaseURL: "https://department-webapp-default-rtdb.firebaseio.com",
+        projectId: "department-webapp",
+        storageBucket: "department-webapp.appspot.com",
+        messagingSenderId: "200792524960",
+        appId: "1:200792524960:web:ed6771ec8ff2bf9e86e1c5",
+        measurementId: "G-5RV1GXRFBD"
+      };
+  firebase.initializeApp(firebaseConfig);
+  var storage = firebase.storage();
+  var storageref=storage.ref();
+  
+  function uploadpdf(){
+    
+    
+    var pdf=document.getElementById("files").files[0];
+    var dept=document.getElementById("dept").value;
+    var sem=document.getElementById("sem").value;
+    var sub=document.getElementById("sub").value;
+    var fname=document.getElementById("fname").value;
+
+    
+    var thisref=storageref.child(dept.concat('/').concat(dept.toLowerCase()).concat('_notes').concat('/').concat(sem).concat('/').concat(sub).concat('/').concat(fname)).put(pdf);
+    thisref.on('state_changed',function(snapshot) {
+        console.log('Done');
+        
+ 
+  }, function(error) {
+  console.log('Error',error);
+ 
+}, function() {
+  thisref.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+    console.log('File available at', downloadURL);
+    document.getElementById("url").value=downloadURL;
+    alert('Uploaded successfully, click submit to continue');
+  });
+});
+}
+
+
+
+</script>
+
+</body>
+</html>
